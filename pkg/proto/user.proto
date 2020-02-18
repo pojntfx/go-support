@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package support;
+option go_package = "github.com/pojntfx/go-support/pkg/proto";
+
+service UserService {
+  rpc FindById(UserID) returns (User) {}
+  rpc FindAll(EmptyArgs) returns (Users) {}
+}
+
+message UserID { int64 ID = 1; }
+
+message EmptyArgs {}
+
+message Users { repeated User Users = 1; }
+
+message User {
+  int64 ID = 1;
+  string Email = 2;
+  string FirstName = 3;
+  string SecondName = 4;
+  string UserName = 5;
+}
